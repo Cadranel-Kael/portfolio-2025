@@ -1,0 +1,46 @@
+@use '../abstracts/typography' as *;
+@use '../abstracts/spacing' as *;
+@use '../abstracts/helpers' as *;
+@use '../abstracts/borders' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/screens' as *;
+
+.footer {
+    margin-top: auto;
+    padding: spacing(3) 10% spacing(6);
+    backdrop-filter: blur(10px);
+
+    &__inner {
+        margin: auto;
+        max-width: column(12);
+    }
+
+    &__socials {
+        border-bottom: $border-width solid $white;
+        padding-bottom: spacing(5);
+
+        @include screen('md') {
+            display: flex;
+            gap: spacing(1);
+        }
+
+        .socials {
+            &__title {
+                margin-bottom: spacing(2);
+                @include heading(6)
+            }
+
+            &__link {
+                display: flex;
+                gap: spacing(0.5);
+                margin-bottom: spacing(1);
+                @include inherit;
+                @include heading(6, normal);
+
+                @include screen('md') {
+                    margin-bottom: spacing(3);
+                }
+            }
+        }
+    }
+}

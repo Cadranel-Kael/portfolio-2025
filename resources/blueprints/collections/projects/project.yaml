@@ -1,0 +1,128 @@
+title: Project
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: thumbnail
+            field:
+              container: assets
+              type: assets
+              display: Thumbnail
+          -
+            handle: year
+            field:
+              placeholder: '2025'
+              type: integer
+              display: Year
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Concept
+          -
+            handle: project_link
+            field:
+              type: link
+              display: 'Project link'
+          -
+            handle: github
+            field:
+              type: link
+              display: Github
+          -
+            handle: objectives
+            field:
+              type: toggle
+              display: 'Objectives & Goals'
+          -
+            handle: objectives_title
+            field:
+              type: text
+              display: 'Objectives & Goals Title'
+              if:
+                objectives: 'equals true'
+          -
+            handle: objectives_list
+            field:
+              type: list
+              display: 'Objectives list'
+              if:
+                objectives: 'equals true'
+          -
+            handle: challenges
+            field:
+              type: toggle
+              display: Challenges
+          -
+            handle: challenge
+            field:
+              type: textarea
+              display: Challenge
+              if:
+                challenges: 'equals true'
+          -
+            handle: technologies_used
+            field:
+              type: toggle
+              display: 'Technologies used'
+          -
+            handle: technologies
+            field:
+              type: replicator
+              display: 'Technologies used'
+              if:
+                technologies_used: 'equals true'
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    new_set:
+                      display: 'New Set'
+                      fields:
+                        -
+                          handle: title
+                          field:
+                            type: text
+                            display: Title
+                            width: 50
+                        -
+                          handle: technology
+                          field:
+                            type: list
+                            display: technology
+                            width: 50
+          -
+            handle: gallery
+            field:
+              container: assets
+              type: assets
+              display: Gallery
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select

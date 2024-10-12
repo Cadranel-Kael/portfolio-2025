@@ -1,0 +1,21 @@
+title: Projects
+template: projects/show
+layout: layout
+mount: a6a21511-0db1-46e0-ae2a-7aa18bbbf1c1
+taxonomies:
+  - tags
+revisions: false
+route: '{mount}/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true
+  -
+    label: Index
+    url: '{mount}/{slug}'
+    refresh: true

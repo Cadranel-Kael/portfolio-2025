@@ -1,0 +1,49 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: name
+            field:
+              placeholder: 'John Doe'
+              autocomplete: name
+              type: text
+              display: 'Full name'
+              validate:
+                - required
+          -
+            handle: email
+            field:
+              input_type: email
+              placeholder: john.doe@example.com
+              autocomplete: email
+              type: text
+              display: Email
+              validate:
+                - required
+                - email
+          -
+            handle: company
+            field:
+              placeholder: 'John Doe Co.'
+              type: text
+              display: Company
+          -
+            handle: phone
+            field:
+              input_type: tel
+              placeholder: '+32 504 590 43'
+              autocomplete: tel
+              type: text
+              display: Phone
+          -
+            handle: message
+            field:
+              placeholder: 'Your message...'
+              type: textarea
+              display: Message
+              validate:
+                - required
+                - 'min:10'

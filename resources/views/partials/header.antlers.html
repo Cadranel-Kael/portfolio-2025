@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="header__inner">
+        <a class="sr-only focus:not-sr-only" href="#main-content">Skip to main content</a>
+        <div class="header__top">
+            <a href="/" class="header__title">KC</a>
+            <svg id="mainMenuButton" class="header__burger burger closed" viewBox="0 0 100 100" width="80">
+                <path
+                    class="burger__line burger__top"
+                    d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+                <path
+                    class="burger__line burger__middle"
+                    d="m 70,50 h -40" />
+                <path
+                    class="burger__line burger__bottom"
+                    d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+            </svg>
+        </div>
+        <div id="mainMenu" aria-expanded="true" class="header__menus closed">
+            <nav class="header__main-nav main-nav">
+                <h2 class="sr-only">Main navigation</h2>
+                <ul class="main-nav__list">
+                    {{ nav:main }}
+                        <li><a class="main-nav__item"
+                               href="{{ url }}">{{ title }}</a></li>
+                    {{ /nav:main }}
+                </ul>
+            </nav>
+            <nav class="header__socials socials">
+                <h2 class="sr-only">My socials</h2>
+                <ul class="socials__list">
+                    {{ nav:socials }}
+                        <li><a class="socials__link icon icon-{{ title | lower }}" title="Towards my {{ title }}"
+                               href="{{ url }}"></a></li>
+                    {{ /nav:socials }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

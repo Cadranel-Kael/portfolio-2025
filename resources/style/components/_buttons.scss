@@ -1,0 +1,53 @@
+@use "../abstracts/spacing" as *;
+@use "../abstracts/typography" as *;
+@use "../abstracts/colors" as *;
+@use "../abstracts/borders" as *;
+@use "../abstracts/icons" as *;
+@use "../abstracts/helpers" as *;
+@use "../abstracts/screens" as *;
+
+.button {
+    @include inherit;
+    cursor: pointer;
+    @include heading(5);
+    display: flex;
+}
+
+.button--arrow {
+    @extend .button;
+    border: $border-width solid $primary-500;
+    color: $black;
+    padding: spacing(1.5) spacing(1);
+    gap: spacing(1);
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        content: '';
+        position: absolute;
+        background: $primary-500;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        transition: width 0.5s ease-in-out;
+    }
+
+    &:after {
+        @include icon('arrow');
+        transition: margin 0.5s ease-in-out;
+    }
+
+    &:hover {
+        color: $white;
+        &:before {
+            width: 100%;
+        }
+        &:after {
+            margin-left: 1rem;
+        }
+    }
+}

@@ -1,0 +1,106 @@
+<div class="project">
+    <section class="project__section project__overview">
+        <h2 class="sr-only">Project overview</h2>
+        <div class="project__title">
+            {{ title }}
+        </div>
+        {{ if tags }}
+        <ul class="project__tags">
+            {{ tags }}
+            <li class="project__tag">
+                {{ title }}
+            </li>
+            {{ /tags }}
+        </ul>
+        {{ /if }}
+        <dl>
+            <dt>Year</dt>
+            <dd>{{ year }}</dd>
+        </dl>
+        <div class="project__link-wrapper">
+        {{ if project_link }}
+        <div class="project__link">
+            {{ project_link }}
+            <a href="{{ url }}" title="View {{ title }} live" class="project__live-link" target="_blank">
+                View live
+            </a>
+            {{ /project_link }}
+        </div>
+        {{ /if }}
+            {{ responsive:thumbnail glide:width="2000" class="project__live-image" }}
+        </div>
+        {{ if github_link }}
+        {{ github_link }}
+        <a href="{{ url }}" class="project__github-link" hreflang="en" title="Go to the repo of {{ title }}" target="_blank">Github</a>
+        {{ /github_link }}
+        {{ /if }}
+    </section>
+    <section class="project__section project__info-section">
+    <div class="project__info-inner">
+    <h2 class="sr-only">Project info</h2>
+    <section class="project__info">
+        <h3 class="project__section-title project__intro-title  ">
+            Introduction
+        </h3>
+        <p class="project__description">
+            {{ description }}
+        </p>
+    </section>
+        <div></div>
+    {{ if challenges }}
+    <section class="project__info">
+        <h3 class="project__section-title">
+            Challenges
+        </h3>
+        <p class="project__challenges">
+            {{ challenge }}
+        </p>
+    </section>
+    {{ /if objectives }}
+    {{ if objectives }}
+    <section class="project__info">
+        <h3 class="project__section-title">
+            Strategies & Goals
+        </h3>
+        <ul class="project__objectives">
+            {{ objectives_list }}
+            <li class="project__objective">{{ value }}</li>
+            {{ /objectives_list }}
+        </ul>
+    </section>
+    {{ /if objectives }}
+    {{ if technologies_used }}
+    <section class="project__info">
+        <h3 class="project__section-title">
+            Technologies Used
+        </h3>
+        <dl class="project__technologies">
+        {{ technologies }}
+            <dt class="project__technology-category">
+                {{ title }}:
+            </dt>
+            <dd class="project__technology">
+                {{ technology }} {{ value }}{{ unless last }}, {{ /unless }}{{ /technology }}
+            </dd>
+        {{ /technologies }}
+        </dl>
+    </section>
+    {{ /if technologies_used }}
+    </div>
+    </section>
+    {{ if gallery }}
+    <section class="project__section project__gallery-section">
+        <h2 class="project__section-title project__gallery-title">Gallery</h2>
+        <div class="project__gallery">
+            {{ gallery }}
+            {{ responsive:url glide:width="2000" class="project__gallery-image" }}
+            {{ /gallery }}
+        </div>
+    </section>
+    {{ /if }}
+    <section class="project__section project__contact-section">
+        <h2 class="project__section-title">Let's create your universe</h2>
+        <p>Would you also have a universe for you or your brand ?</p>
+        <a href="/contact" class="project__contact-link">Contact me</a>
+    </section>
+</div>

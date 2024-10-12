@@ -1,0 +1,23 @@
+$screens: (
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+);
+
+@mixin screen($size, $type: 'min') {
+  @if map-has-key($screens, $size) {
+    $value: map-get($screens, $size);
+    @if $type == 'min' {
+      @media (min-width: $value) {
+        @content;
+      }
+    } @else if $type == 'max' {
+      @media (max-width: $value) {
+        @content;
+      }
+    }
+  } @else {
+    @warn "Unknown screen size: #{$size}. Valid sizes are: #{map-keys($screens)}.";
+  }
+}

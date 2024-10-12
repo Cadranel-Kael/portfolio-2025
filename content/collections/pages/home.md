@@ -1,16 +1,50 @@
 ---
-title: Home
 id: home
+blueprint: home
+title: Home
 template: home
-blueprint: pages
+hero_pre_title: 'I am'
+hero_title: 'Kael Cadranel'
+hero_tagline: 'And welcome to my universe'
+about_pre: 'A bit'
+about_title: 'About me'
+about_bio: 'I’m Kael, a 24 year old UX/UI web designer and full-stack web developer. I have a huge passion and drive to learn and create accessible and well designed websites.'
+projects_title: 'Some of my **favourite** created universes'
+qualifications_title: 'Qualifications and Diplomas'
+qualifications:
+  -
+    id: m1g44y7n
+    title: 'Bachelors in Graphic Design - Specialised in Web Design'
+    year: '2024'
+    institute: 'Haute École de la Province de Liège'
+    location: 'Liege, Belgium'
+    description: 'During my bachelors I’m learning the essentials of HTML, CSS, and JavaScript to build the structure, style, and interactivity of web pages. I am also learning backend development, databases, and APIs for server-side programming and data management. Security measures and performance optimization techniques are emphasized. I am also learning about responsive design, UX/UI principles, and project management.'
+    type: new_set
+    enabled: true
+  -
+    id: m1jsiam2
+    title: 'CESS - Option in Comupter Science'
+    year: '2018'
+    institute: 'Collège saint-louis'
+    location: 'Waremme, Belgium'
+    description: 'During my 4 years in the computer science section I development numerous skills related to the field of computer science. I learnt basics of web development (HTML, CSS, JavaScript) and even back-end development (PHP and database management). I learnt the concept of programming languages and Java. I have also developed skills in image editing, 3d and video editing software.'
+    type: new_set
+    enabled: true
+faq_title: FAQ
+qa:
+  -
+    id: m1g45z20
+    question: 'How much will it cost to develop my website?'
+    answer: "It's difficult to provide an accurate time frame without knowing the specific requirements and complexity of your website. However, the development process typically ranges from a few weeks to a few months, depending on factors such as design, functionality, content, and revisions."
+    type: new_set
+    enabled: true
+contact_title: Contact
+updated_by: aaccd2d7-2d75-42a0-a696-a175add5eacb
+updated_at: 1727385234
+about_image: kael-cadranel.png
+contact_form: contact
+projects:
+  - efd82fad-98c2-494b-84e3-7898576b52a6
+  - 3c9088bb-fdb1-4d82-b2e1-7ab4693aff3e
+  - 8e9aead2-1ec5-41ca-bd3f-8b6d9df2f63e
 ---
-## Welcome to your brand new Statamic site!
-
-Not sure where to do next? Here are a few ideas, but feel free to explore in your own way, in your own time.
-
-- [Jump into the Control Panel](/cp) and edit this page or begin setting up your own collections and blueprints.
-- [Head to the docs](https://statamic.dev) and learn how Statamic works.
-- [Watch some Statamic videos](https://youtube.com/statamic) on YouTube.
-- [Join our Discord chat](https://statamic.com/discord) and meet thousands of other Statamic developers.
-- [Start a discussion](https://github.com/statamic/cms/discussions) and get answers to your questions.
-- [Star Statamic on Github](https://github.com/statamic/cms) if you enjoy using it!

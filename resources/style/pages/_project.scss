@@ -1,0 +1,176 @@
+@use '../abstracts/typography' as *;
+@use '../abstracts/spacing' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/screens' as *;
+@use '../abstracts/helpers' as *;
+@use '../abstracts/icons' as *;
+@forward '../components/buttons';
+
+.project {
+    margin-top: 10rem;
+
+    &__overview {
+        max-width: column(12);
+        margin: auto;
+        @include screen('md') {
+            max-width: initial;
+            margin: 0;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        @include heading(4);
+        @include dropshadow;
+
+        @include screen('md') {
+            max-width: column(12);
+            margin: auto;
+            text-align: left;
+            width: spacing(25);
+            @include heading(3)
+        }
+
+        @include screen('lg') {
+            @include heading(2)
+        }
+    }
+
+    &__tags {
+        display: flex;
+        color: $primary;
+        @include heading(6);
+
+        @include screen('md') {
+            max-width: column(12);
+            margin: auto;
+        }
+    }
+
+    &__tag:not(:last-child) {
+        margin-right: spacing(0.5);
+
+        &:after {
+            content: ","
+        }
+    }
+
+    &__live {
+        position: relative;
+    }
+
+    &__link-wrapper {
+        @include screen('md') {
+            overflow: hidden;
+        }
+    }
+
+    &__link {
+        position: absolute;
+        color: $black;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10rem;
+        min-height: 10rem;
+        border-radius: 999px;
+        @include heading(5);
+
+        > a {
+            @include inherit;
+        }
+    }
+
+    &__live-image {
+        max-height: 30rem;
+        object-fit: cover;
+        width: 100vw;
+        max-width: column(24);
+        height: auto;
+    }
+
+    &__section-title {
+        margin-bottom: spacing(2);
+        @include heading(5);
+
+        @include screen('md') {
+            @include heading(4)
+        }
+
+        @include screen('lg') {
+            @include heading(3)
+        }
+    }
+
+    &__info-section {
+        background: $white;
+        color: $black;
+        padding: spacing(5) 10%;
+
+    }
+
+    &__info-inner {
+        max-width: column(12);
+        @include screen('md') {
+            margin: auto;
+            display: grid;
+            gap: spacing(4);
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__info {
+        margin-bottom: spacing(5);
+    }
+
+    &__objective {
+        display: flex;
+        gap: spacing(0.5);
+
+        &:before {
+            margin-top: spacing(0.5);
+            @include icon('star')
+        }
+    }
+
+    &__technology-category {
+        font-weight: bold;
+    }
+
+    &__gallery-section {
+        text-align: center;
+        box-sizing: border-box;
+        max-width: 100vw;
+        padding: spacing(4) 0;
+    }
+
+    &__gallery {
+        overflow-x: scroll;
+        display: flex;
+        align-items: center;
+    }
+
+    &__gallery-title {
+        @include dropshadow
+    }
+
+    &__gallery-image {
+        width: 75vw;
+        height: auto;
+    }
+
+    &__contact-section {
+        padding: spacing(6) 0 ;
+        background-color: $white;
+        color: $black;
+        text-align: center;
+    }
+
+    &__contact-link {
+        @extend .button--arrow;
+        margin: spacing(8) auto 0;
+        max-width: spacing(16);
+    }
+
+}

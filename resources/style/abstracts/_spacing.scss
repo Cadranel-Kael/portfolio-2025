@@ -1,0 +1,41 @@
+$spacing: (
+  0 : 0,               // No spacing (0px)
+  0.5 : 0.25rem,       // 4px spacing
+  1 : 0.5rem,          // 8px spacing
+  1.5 : 0.75rem,       // 12px spacing
+  2 : 1rem,            // 16px spacing
+  3 : 1.5rem,          // 24px spacing
+  4 : 2rem,            // 32px spacing
+  5 : 2.5rem,          // 40px spacing
+  6 : 3.5rem,          // 56px spacing
+  7 : 4.5rem,          // 72px spacing
+  8 : 5rem,            // 80px spacing
+  9 : 6rem,            // 96px spacing
+  10 : 7.5rem,         // 120px spacing
+  11 : 8rem,           // 128px spacing
+  12 : 9rem,           // 144px spacing
+  13 : 10rem,          // 160px spacing
+  14 : 11rem,          // 176px spacing
+  15 : 12rem,          // 192px spacing
+  16 : 13rem,          // 208px spacing
+  17 : 14rem,          // 224px spacing
+  18 : 15rem,          // 240px spacing
+  19 : 16rem,          // 256px spacing
+  20 : 18rem,          // 288px spacing
+  21 : 20rem,          // 288px spacing
+  22 : 22rem,          // 288px spacing
+  23 : 24rem,          // 288px spacing
+  24 : 26rem,          // 288px spacing
+  25 : 28rem,          // 288px spacing
+);
+
+$column: 3.75rem;
+$gap: 2.5rem;
+
+@function spacing($number) {
+  @return map-get($spacing, $number);
+}
+
+@function column($number) {
+  @return ($column * $number) + (($number - 1) * $gap);
+}

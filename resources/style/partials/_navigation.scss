@@ -1,0 +1,173 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/spacing' as *;
+@use '../abstracts/typography' as *;
+@use '../abstracts/borders' as *;
+@use '../abstracts/screens' as *;
+@use '../abstracts/helpers' as *;
+
+.nav {
+    background: $black;
+    width: 100vw;
+    min-height: 60px;
+    z-index: 10;
+
+    @include screen('md') {
+        position: fixed;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @include screen('md') {
+            margin: auto;
+            flex-direction: row;
+            align-items: center;
+            max-width: 72.125rem;
+        }
+    }
+
+    &__menu-home {
+        color: $white;
+        text-decoration: none;
+        margin-right: auto;
+        @include heading(6);
+
+        > a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__menu-link {
+        @include inherit;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: spacing(3) 0;
+        border-top: $border-width $white solid;
+        border-bottom: $border-width $white solid;
+        gap: spacing(9);
+        @include text('lg');
+
+        @include screen(md) {
+            flex-direction: row;
+            border: none;
+            justify-content: flex-end;
+            width: 100%;
+            padding-right: spacing(3);
+            @include text('md');
+        }
+    }
+
+    &__burger-button {
+        width: 3rem;
+        align-self: flex-end;
+        @include screen(md) {
+            display: none;
+        }
+
+        #top-line,
+        #bottom-line,
+        #middle-line {
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        &:hover {
+            #top-line {
+                animation: down-rotate 0.6s ease-out both;
+            }
+
+            #bottom-line {
+                animation: up-rotate 0.6s ease-out both;
+            }
+
+            #middle-line {
+                animation: hide 0.6s ease-out forwards;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        height: fit-content;
+        gap: spacing(3);
+
+        @include screen('md') {
+            border-left: $white $border-width solid;
+            padding-left: spacing(3);
+        }
+    }
+
+    &__socials-item {
+        display: flex;
+    }
+
+    &__socials-link {
+        color: $white;
+        text-decoration: none;
+        font-size: 2rem;
+        display: flex;
+        border-radius: 999px;
+        padding: spacing(0.5);
+
+        &:hover {
+            color: $black;
+            background: white;
+        }
+    }
+}
+
+@keyframes up-rotate {
+    0% {
+        animation-timing-function: cubic-bezier(0.16, -0.88, 0.97, 0.53);
+        transform: translateY(0px);
+    }
+    30% {
+        transform-origin: center;
+        animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform: translateY(-10px);
+    }
+    100% {
+        transform-origin: center;
+        transform: translateY(-10px) rotate(45deg) scale(0.9);
+    }
+}
+
+@keyframes down-rotate {
+    0% {
+        animation-timing-function: cubic-bezier(0.16, -0.88, 0.97, 0.53);
+        transform: translateY(0px);
+    }
+    30% {
+        transform-origin: center;
+        animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform: translateY(10px);
+    }
+    100% {
+        transform-origin: center;
+        transform: translateY(10px) rotate(-45deg) scale(0.9);
+    }
+}
+
+@keyframes hide {
+    29% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

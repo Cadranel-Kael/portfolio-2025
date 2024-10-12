@@ -1,0 +1,164 @@
+hide: true
+title: Home
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: hero_pre_title
+            field:
+              type: text
+              display: 'Hero pre title'
+          -
+            handle: hero_title
+            field:
+              type: text
+              display: 'Hero title'
+          -
+            handle: hero_tagline
+            field:
+              type: text
+              display: 'Hero tagline'
+          -
+            handle: about_pre
+            field:
+              type: text
+              display: 'About pre'
+          -
+            handle: about_title
+            field:
+              type: text
+              display: 'About title'
+          -
+            handle: about_image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: 'About image'
+          -
+            handle: about_bio
+            field:
+              type: textarea
+              display: 'About bio'
+          -
+            handle: projects_title
+            field:
+              type: markdown
+              display: 'Projects title'
+          -
+            handle: projects
+            field:
+              collections:
+                - projects
+              type: entries
+              display: Projects
+          -
+            handle: qualifications_title
+            field:
+              type: text
+              display: 'Qualifications title'
+          -
+            handle: qualifications
+            field:
+              type: replicator
+              display: Qualifications
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    new_set:
+                      display: 'New Set'
+                      fields:
+                        -
+                          handle: title
+                          field:
+                            type: text
+                            display: Title
+                        -
+                          handle: year
+                          field:
+                            type: text
+                            display: Year
+                        -
+                          handle: institute
+                          field:
+                            type: text
+                            display: Institute
+                        -
+                          handle: location
+                          field:
+                            type: text
+                            display: Location
+                        -
+                          handle: description
+                          field:
+                            type: textarea
+                            display: Description
+          -
+            handle: faq_title
+            field:
+              type: text
+              display: 'FAQ title'
+          -
+            handle: qa
+            field:
+              type: replicator
+              display: 'Q&A'
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    new_set:
+                      display: 'New Set'
+                      fields:
+                        -
+                          handle: question
+                          field:
+                            type: text
+                            display: Question
+                        -
+                          handle: answer
+                          field:
+                            type: text
+                            display: Answer
+          -
+            handle: contact_title
+            field:
+              type: text
+              display: 'Contact title'
+          -
+            handle: contact_form
+            field:
+              max_items: 1
+              type: form
+              display: 'Contact form'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

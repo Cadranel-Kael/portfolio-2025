@@ -1,0 +1,187 @@
+@use '../abstracts/typography' as *;
+@use '../abstracts/spacing' as *;
+@use '../abstracts/helpers' as *;
+@use '../abstracts/borders' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/screens' as *;
+
+.js {
+    .header {
+        position: fixed;
+
+        &__menus {
+            @include screen('md', 'max') {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                justify-content: center;
+                &.closed {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    backdrop-filter: blur(10px);
+    color: $white;
+    mix-blend-mode: difference;
+    width: 100vw;
+    z-index: 100;
+
+    @include screen('lg') {
+        position: fixed;
+    }
+
+    &__inner {
+        padding: 0 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include screen('lg') {
+            flex-direction: row;
+            max-width: column(12);
+            margin: auto;
+        }
+    }
+
+    &__top {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include heading(5, bold);
+
+        @include screen('lg') {
+            margin-right: auto;
+            @include heading(4, bold);
+        }
+    }
+
+    &__burger {
+        cursor: pointer;
+        //-webkit-tap-highlight-color: transparent;
+        transition: transform 400ms;
+        user-select: none;
+
+        @include screen('lg') {
+            display: none;
+        }
+
+        &.closed {
+            transform: rotate(45deg);
+
+            .burger__top {
+                stroke-dashoffset: -68px;
+            }
+
+            .burger__bottom {
+                stroke-dashoffset: -68px;
+            }
+        }
+
+        .burger {
+            &__line {
+                fill: none;
+                transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+                stroke: $white;
+                stroke-width: 5.5;
+                stroke-linecap: round;
+            }
+
+            &__top {
+                stroke-dasharray: 40 121;
+            }
+
+            &__bottom {
+                stroke-dasharray: 40 121;
+            }
+        }
+    }
+
+
+    &__menus {
+        width: 100%;
+        @include screen('lg') {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+        }
+    }
+
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &__main-nav {
+        width: 100%;
+
+        @include screen('lg') {
+            width: initial;
+        }
+
+        .main-nav {
+            &__list {
+                border-top: solid $white $border-width;
+                border-bottom: solid $white $border-width;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: spacing(4) 0;
+                gap: spacing(3);
+
+                @include screen('lg') {
+                    border: none;
+                    flex-direction: row;
+                    height: fit-content;
+                    margin-right: spacing(6);
+                    padding-right: spacing(6);
+                }
+            }
+
+            &__item {
+                @include text(lg);
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $white;
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover:before {
+                    transform: scaleX(1);
+                }
+
+                @include screen('lg') {
+                    @include text(md);
+                }
+            }
+        }
+    }
+
+    &__socials {
+        .socials {
+            &__list {
+                display: flex;
+                font-size: 2rem;
+                gap: spacing(1.5);
+            }
+        }
+    }
+}
+

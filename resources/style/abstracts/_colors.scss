@@ -1,0 +1,35 @@
+$black-50: #efefef;
+$black-100: #d5d5d5;
+$black-200: #aeaeae;
+$black-300: #757575;
+$black-400: #363636;
+$black-500: #1b1b1b;
+$black-600: #171717;
+$black-700: #141414;
+$black-800: #111111;
+$black-900: #0f0f0f;
+$black-950: #070707;
+
+$black: $black-500;
+
+$primary-50:  #f1faf9;
+$primary-100: #daf3f3;
+$primary-200: #bae5e7;
+$primary-300: #8ad3d6;
+$primary-400: #5bbac0;
+$primary-500: #389ba2;
+$primary-600: #317e89;
+$primary-700: #2d6771;
+$primary-800: #2c565e;
+$primary-900: #294950;
+$primary-950: #162f36;
+
+$primary: $primary-400;
+
+$white: #fff;
+
+$alert: #C81F1F;
+
+.color-alert {
+    color: $alert;
+}

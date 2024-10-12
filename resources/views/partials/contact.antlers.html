@@ -1,0 +1,26 @@
+<section class="contact">
+    {{ form:contact }}
+        <div class="contact__inner">
+            <h2 class="contact__title">{{ contact_title }}</h2>
+            {{ fields }}
+            <div class="contact__field
+                    {{ if field|contains:textarea }} contact__textarea {{ /if }}">
+                <label class="contact__label" for="{{ handle }}">
+                    {{ display }}
+                    {{ if validate|contains:required }}
+                        <span class="color-alert">*</span>
+                    {{ /if }}
+                </label>
+                <div class="contact__input">
+                    {{ field }}
+                </div>
+                {{ if error }}
+                    <p class="contact__error">{{ error }}</p>
+                {{ /if }}
+            </div>
+            {{ /fields }}
+            <input type="text" style="display: none" name="{{ honeypot ?? 'honeypot' }}">
+            <button class="contact__button" type="submit">Send off</button>
+        </div>
+    {{ /form:contact }}
+</section>

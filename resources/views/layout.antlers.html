@@ -1,15 +1,24 @@
 <!doctype html>
-<html lang="{{ site:short_locale }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title ?? site:name }}</title>
-        {{ vite src="resources/js/site.js|resources/css/site.css" }}
-    </head>
-    <body class="bg-gray-100 font-sans leading-normal text-gray-800">
-        <div class="mx-auto px-2 lg:min-h-screen flex flex-col items-center justify-center">
-            {{ template_content }}
-        </div>
-    </body>
+<html itemscope itemtype="https://schema.org/Person" lang="{{ site:short_locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta itemprop="name" name="author" content="Kael Cadranel">
+    <meta name="keywords" content="Portfolio, Web design, Full-Stack, Developer">
+    <meta name="description" content="Kael Cadranel's Portfolio">
+    <title>{{ title }} - {{ site:name }}</title>
+    {{ vite src="resources/ts/app.ts|resources/style/app.scss" }}
+</head>
+<body class="no-js">
+<script>document.body.classList.replace('no-js', 'js');</script>
+<h1 class="sr-only">{{ $title }}</h1>
+<div class="no-js no-js__message">You have disabled JavaScript, some features might not work as intended. Activate JavaScript to have the full experience.</div>
+{{ partial:stars}}
+{{ partial:header }}
+<main class="main" id="main-content">
+    {{ template_content }}
+</main>
+{{ partial:footer }}
+</body>
 </html>

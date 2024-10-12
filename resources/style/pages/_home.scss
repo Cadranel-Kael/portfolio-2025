@@ -1,0 +1,484 @@
+@use '../abstracts/typography' as *;
+@use '../abstracts/spacing' as *;
+@use '../abstracts/screens' as *;
+@use '../abstracts/colors' as *;
+@use "../abstracts/borders" as *;
+@use "../abstracts/icons" as *;
+@use "../abstracts/helpers" as *;
+
+.hero {
+    overflow: hidden;
+    height: 100vh;
+    @include heading(4, bold);
+    padding: 0 10%;
+
+    &__inner {
+        max-width: 72.375rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    &__pre {
+        @include screen('md') {
+            margin-left: spacing(7);
+        }
+    }
+
+    &__plant {
+        width: 115%;
+        overflow: hidden;
+    }
+
+    &__tagline {
+        margin-top: spacing(2);
+        @include screen('md') {
+            margin-left: spacing(10);
+        }
+    }
+}
+
+.about {
+    background: $white;
+    color: $black;
+    width: 100%;
+    @include screen('md') {
+        margin-bottom: spacing(8);
+    }
+
+    @include screen('lg') {
+        margin-bottom: spacing(10);
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: spacing(3) 10% spacing(6);
+        @include screen('md') {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-areas:
+        'img title'
+        'img bio';
+            max-width: column(6);
+            padding: 0;
+        }
+        @include screen('lg') {
+            max-width: column(12);
+        }
+    }
+
+    &__pre:after {
+        margin-left: spacing(2);
+        font-size: 2rem;
+        @include icon('star');
+    }
+
+    &__heading {
+        font-weight: bold;
+    }
+
+    &__title {
+        @include heading(5);
+
+        @include screen('md') {
+            grid-area: title;
+            align-self: end;
+            @include heading(4);
+            margin: 0 0 spacing(5) spacing(12);
+        }
+
+        @include screen('lg') {
+            @include heading(3)
+        }
+    }
+
+    &__bio {
+        @include screen('md') {
+            grid-area: bio;
+            margin-left: spacing(12);
+        }
+    }
+
+    &__image {
+        width: 35%;
+        position: relative;
+        margin-bottom: spacing(4);
+        @include screen('md') {
+            height: 20rem;
+            grid-area: img;
+            width: column(3);
+            top: 0;
+            margin: 0;
+        }
+
+        @include screen('lg') {
+            height: 35rem;
+            width: column(5);
+        }
+
+        &:before {
+            background: $primary;
+            content: '';
+            position: absolute;
+            top: 25%;
+            bottom: 0;
+            width: 100%;
+        }
+
+        > * {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: auto;
+            bottom: -10%;
+            @include screen('md') {
+                position: absolute;
+            }
+        }
+    }
+}
+
+.projects {
+    padding-top: spacing(6);
+
+    &__title {
+        text-align: center;
+        @include heading(5);
+
+        > strong {
+            font-weight: bold;
+        }
+
+        @include screen('md') {
+            @include heading(4);
+        }
+
+        @include screen('lg') {
+            @include heading(3);
+        }
+    }
+
+    &__list {
+        @include heading(3);
+
+        @include screen('md') {
+            @include heading(1);
+        }
+    }
+
+    &__item {
+        > * {
+            @include inherit
+        }
+    }
+
+    &__thumbnail {
+        border-radius: 999px;
+    }
+}
+
+.qualifications {
+    background: $white;
+    color: $black;
+
+    &__inner {
+        padding: spacing(3) 10% spacing(6);
+        margin: auto;
+        max-width: column(12);
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: spacing(4);
+        @include heading(5);
+
+        @include screen('md') {
+            margin-bottom: spacing(7);
+            @include heading(4);
+        }
+
+        @include screen('lg') {
+            @include heading(3);
+        }
+
+        strong {
+            font-weight: bold;
+        }
+    }
+
+    &__qualification-item {
+        @include screen('lg') {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: right;
+            margin-bottom: spacing(8);
+            &:nth-child(odd) {
+                .qualification-item {
+                    &__title {
+                        grid-column: 2/3;
+                        text-align: left;
+                        margin-left: spacing(2);
+                    }
+
+                    &__year {
+                        grid-column: 2/3;
+                        text-align: left;
+                        margin-left: spacing(2);
+                    }
+
+                    &__location {
+                        grid-column: 2/3;
+                        text-align: left;
+                        margin-left: spacing(2);
+                    }
+
+                    &__description {
+                        grid-column: 1/2;
+                        padding: 0 spacing(2);
+                        border: none;
+                        border-right: solid $border-width $black;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
+    .qualification-item {
+        &__title {
+            margin-bottom: spacing(1.5);
+            @include heading(6);
+
+            @include screen('md') {
+                @include heading(5);
+            }
+
+            @include screen('lg') {
+                @include heading(4);
+                margin-right: spacing(2);
+            }
+        }
+
+        &__year {
+            margin-bottom: spacing(1.5);
+
+            @include screen('md') {
+                @include text(lg);
+            }
+
+            @include screen('lg') {
+                grid-column: 1/2;
+                @include text(xl);
+                margin-right: spacing(2);
+            }
+        }
+
+        &__location {
+            color: $black-300;
+            margin-bottom: spacing(3);
+
+            @include screen('lg') {
+                margin-right: spacing(2);
+            }
+
+            > * {
+                display: block;
+            }
+        }
+
+        &__description {
+            border-left: $border-width solid $black;
+            padding-left: spacing(4);
+            margin-bottom: spacing(5);
+
+            @include screen('md') {
+                margin-bottom: spacing(6);
+            }
+
+            @include screen('lg') {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                height: 100%;
+                grid-row: -1/4;
+                grid-column: 2/3;
+                padding: 0 spacing(2);
+                margin: 0;
+            }
+        }
+    }
+}
+
+.faq {
+    padding: spacing(3) 10% spacing(6);
+    max-width: column(12);
+    margin: auto;
+
+    &__title {
+        text-align: center;
+        margin-bottom: spacing(3);
+        @include heading(5);
+
+        @include screen('md') {
+            @include heading(4);
+            margin-bottom: spacing(7);
+        }
+
+        @include screen('lg') {
+            @include heading(3);
+        }
+    }
+
+    &__item {
+        border-bottom: $border-width $white solid;
+        max-width: column(10);
+        margin: 0 auto spacing(4) auto;
+        backdrop-filter: blur(10px);
+
+        @include screen('md') {
+            margin-bottom: spacing(5);
+        }
+    }
+
+    &__question {
+        @include heading(6);
+        display: flex;
+        position: relative;
+        margin-bottom: spacing(1);
+        justify-content: space-between;
+
+        @include screen('md') {
+            margin-bottom: spacing(3);
+        }
+
+        @include screen('lg') {
+            @include heading(5);
+        }
+
+        &:before {
+            position: absolute;
+            left: -2rem;
+            font-size: 2rem;
+            //@include icon(star);
+
+            @include screen('md') {
+                left: -3rem;
+            }
+        }
+        &:after {
+            //@include icon(arrow);
+            font-size: 1.3125rem;
+            transform: rotate(90deg);
+        }
+    }
+
+    &__answer {
+        margin-bottom: spacing(1);
+    }
+}
+
+.contact {
+    background: $white;
+    color: $black;
+
+    &__inner {
+        max-width: column(6);
+        padding: spacing(3) 10% spacing(6);
+        margin: auto;
+
+        @include screen('md') {
+            display: grid;
+            gap: spacing(5);
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: spacing(3);
+        @include heading(5);
+
+        @include screen('md') {
+            grid-column: span 2;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: spacing(4);
+    }
+
+    &__label {
+        @include heading(6);
+        margin-bottom: spacing(1.5);
+    }
+
+    &__input {
+        > * {
+            width: 100%;
+            padding: spacing(0.5) spacing(1);
+            border: $black solid $border-width;
+            border-radius: 0;
+            @include text();
+        }
+    }
+
+    &__textarea {
+        @include screen('md') {
+            grid-column: span 2;
+        }
+    }
+
+    &__error {
+        color: $alert;
+        margin-top: spacing(1);
+    }
+
+    &__button {
+        background: none;
+        padding: spacing(1.5) spacing(1);
+        border: $border-width solid $primary-500;
+        color: $black;
+        cursor: pointer;
+        display: flex;
+        gap: spacing(1);
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        z-index: 1;
+        @include heading(5);
+
+        &:before {
+            content: '';
+            position: absolute;
+            background: $primary-500;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            z-index: -1;
+            transition: width 0.5s ease-in-out;
+        }
+
+        &:after {
+            @include icon('arrow');
+        }
+
+        &:hover {
+            color: $white;
+            &:before {
+                width: 100%;
+            }
+        }
+
+        @include screen('md') {
+            grid-column: span 2;
+            justify-self: flex-end;
+        }
+    }
+}

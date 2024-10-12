@@ -1,0 +1,17 @@
+@use "../abstracts/colors" as *;
+
+.js {
+    .no-js {
+        display: none;
+    }
+}
+
+.no-js {
+    &__message {
+        background: $alert;
+        text-align: center;
+        position: fixed;
+        width: 100vw;
+        z-index: 101;
+    }
+}

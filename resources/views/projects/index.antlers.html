@@ -1,0 +1,15 @@
+    <section class="projects">
+        <h2 class="projects__title">{{ projects_title | strip_tags('p') }}</h2>
+    <ul class="projects__list">
+    {{ collection:projects }}
+    <li class="projects__item">
+    <a href="{{ url }}">
+    {{ title }}
+    {{ thumbnail }}
+    {{ responsive:thumbnail glide:width="100" ratio="1/1" class="projects__thumbnail" }}
+        {{ /thumbnail }}
+        </a>
+        </li>
+        {{ /collection:projects }}
+    </ul>
+    </section>

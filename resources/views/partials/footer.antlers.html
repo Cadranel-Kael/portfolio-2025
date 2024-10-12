@@ -1,0 +1,15 @@
+<footer class="footer">
+    <div class="footer__inner">
+        <nav class="footer__socials socials">
+            <h2 class="socials__title">My socials</h2>
+            <ul class="socials__list">
+                {{ nav:socials }}
+                    <li><a itemprop="sameAs" class="socials__link icon icon-{{ title | lower }}" title="Towards my {{ title }}" href="{{ url }}">{{ title }}</a></li>
+                {{ /nav:socials }}
+            </ul>
+        </nav>
+        <div>
+            <small>© 2024 Kael Cadranel</small>
+        </div>
+    </div>
+</footer>

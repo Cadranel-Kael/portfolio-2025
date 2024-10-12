@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1c76ca0220b079dce5b85473f8ff36d",
+    "content-hash": "29eac59c57e8fb5953c3bc75f64181b2",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -4448,17 +4448,67 @@
             "time": "2024-02-19T09:00:59+00:00"
         },
         {
-            "name": "statamic/cms",
-            "version": "v5.25.0",
+            "name": "spatie/statamic-responsive-images",
+            "version": "v5.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/statamic/cms.git",
-                "reference": "4471676d395e07d01aaa0c0e1b7d23cc4426a75c"
+                "url": "https://github.com/spatie/statamic-responsive-images.git",
+                "reference": "402b905820e03dacda799594737749d5349f3487"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/statamic/cms/zipball/4471676d395e07d01aaa0c0e1b7d23cc4426a75c",
-                "reference": "4471676d395e07d01aaa0c0e1b7d23cc4426a75c",
+                "url": "https://api.github.com/repos/spatie/statamic-responsive-images/zipball/402b905820e03dacda799594737749d5349f3487",
+                "reference": "402b905820e03dacda799594737749d5349f3487",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.9|^7.1|^8.0|^9.0",
+                "pestphp/pest": "^1.22",
+                "spatie/pest-plugin-snapshots": "^1.1"
+            },
+            "type": "statamic-addon",
+            "extra": {
+                "statamic": {
+                    "name": "Responsive Images",
+                    "description": "Responsive Images for Statamic 3"
+                },
+                "laravel": {
+                    "providers": [
+                        "Spatie\\ResponsiveImages\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ResponsiveImages\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Responsive Images for Statamic 3",
+            "support": {
+                "issues": "https://github.com/spatie/statamic-responsive-images/issues",
+                "source": "https://github.com/spatie/statamic-responsive-images/tree/v5.0.1"
+            },
+            "time": "2024-09-12T19:14:45+00:00"
+        },
+        {
+            "name": "statamic/cms",
+            "version": "v5.26.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/statamic/cms.git",
+                "reference": "a375508d5f6ca900efa18f24a7a44afed206eff5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statamic/cms/zipball/a375508d5f6ca900efa18f24a7a44afed206eff5",
+                "reference": "a375508d5f6ca900efa18f24a7a44afed206eff5",
                 "shasum": ""
             },
             "require": {
@@ -4541,7 +4591,7 @@
             ],
             "support": {
                 "issues": "https://github.com/statamic/cms/issues",
-                "source": "https://github.com/statamic/cms/tree/v5.25.0"
+                "source": "https://github.com/statamic/cms/tree/v5.26.0"
             },
             "funding": [
                 {
@@ -4549,7 +4599,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-10T17:49:40+00:00"
+            "time": "2024-09-24T21:02:24+00:00"
         },
         {
             "name": "statamic/stringy",
