@@ -13,37 +13,49 @@
         max-width: column(12);
         margin: auto;
         @include screen('md') {
-            max-width: initial;
-            margin: 0;
+            max-width: column(24);
+        }
+    }
+
+    &__basic {
+        max-width: column(12);
+        margin: 0 spacing(4);
+        text-align: center;
+
+        @include screen('md') {
+            text-align: left;
+            margin: auto;
         }
     }
 
     &__title {
-        text-align: center;
         @include heading(4);
         @include dropshadow;
 
         @include screen('md') {
-            max-width: column(12);
-            margin: auto;
-            text-align: left;
+            margin-bottom: spacing(4);
             width: spacing(25);
             @include heading(3)
         }
 
         @include screen('lg') {
-            @include heading(2)
+            @include heading(2);
         }
+    }
+
+    &__year {
+        @include heading(5);
     }
 
     &__tags {
         display: flex;
         color: $primary;
         @include heading(6);
+        margin-bottom: spacing(2);
 
         @include screen('md') {
             max-width: column(12);
-            margin: auto;
+            margin: 0 auto spacing(8);
         }
     }
 

@@ -1,10 +1,15 @@
-<section class="contact">
-    {{ form:contact }}
+<section class="contact" id="contact-form">
+    {{ form:contact error_redirect="#contact-form" redirect="#contact-form" js="alpine" }}}
         <div class="contact__inner">
             <h2 class="contact__title">{{ contact_title }}</h2>
+            {{ if success }}
+                <div class="contact__success" x-show="isSubmitted">
+                    Your form has well been sent off ! :)
+                </div>
+            {{ /if }}
             {{ fields }}
             <div class="contact__field
-                    {{ if field|contains:textarea }} contact__textarea {{ /if }}">
+                {{ if field|contains:textarea }} contact__textarea {{ /if }}">
                 <label class="contact__label" for="{{ handle }}">
                     {{ display }}
                     {{ if validate|contains:required }}

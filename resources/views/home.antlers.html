@@ -28,7 +28,7 @@
         <h2 class="projects__title">{{ projects_title | strip_tags('p') }}</h2>
         <ul class="projects__list">
             {{ projects }}
-            <li class="projects__item">
+            <li data-marquee class="projects__item">
                 <a href="{{ url }}">
                 {{ title }}
                 {{ thumbnail }}
@@ -57,10 +57,10 @@
     </section>
     <section class="faq">
         <h2 class="faq__title">FAQ</h2>
-        <dl class="faq__item">
+        <dl class="faq__item" data-accordian>
             {{ qa }}
             <dt class="faq__question">{{ question }}</dt>
-            <dd class="faq__answer">{{ answer }}</dd>
+            <dd data-collapsible class="faq__answer">{{ answer }}</dd>
             {{ /qa }}
         </dl>
     </section>

@@ -1,22 +1,24 @@
 <div class="project">
     <section class="project__section project__overview">
         <h2 class="sr-only">Project overview</h2>
+    <div class="project__basic">
         <div class="project__title">
             {{ title }}
         </div>
         {{ if tags }}
-        <ul class="project__tags">
-            {{ tags }}
-            <li class="project__tag">
-                {{ title }}
-            </li>
-            {{ /tags }}
-        </ul>
+            <ul class="project__tags">
+                {{ tags }}
+                <li class="project__tag">
+                    {{ title }}
+                </li>
+                {{ /tags }}
+            </ul>
         {{ /if }}
-        <dl>
+        <dl class="project__year">
             <dt>Year</dt>
             <dd>{{ year }}</dd>
         </dl>
+    </div>
         <div class="project__link-wrapper">
         {{ if project_link }}
         <div class="project__link">

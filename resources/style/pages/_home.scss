@@ -129,12 +129,13 @@
             width: 100%;
         }
 
-        > * {
+        > * > * {
             position: relative;
             z-index: 2;
             width: 100%;
             height: auto;
             bottom: -10%;
+
             @include screen('md') {
                 position: absolute;
             }
@@ -148,6 +149,7 @@
     &__title {
         text-align: center;
         @include heading(5);
+        margin-bottom: spacing(5);
 
         > strong {
             font-weight: bold;
@@ -164,6 +166,10 @@
 
     &__list {
         @include heading(3);
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
 
         @include screen('md') {
             @include heading(1);
@@ -171,6 +177,10 @@
     }
 
     &__item {
+        margin-bottom: spacing(5);
+        > a {
+            display: inline-block;
+        }
         > * {
             @include inherit
         }
@@ -180,6 +190,8 @@
         border-radius: 999px;
     }
 }
+
+
 
 .qualifications {
     background: $white;
@@ -338,6 +350,7 @@
         max-width: column(10);
         margin: 0 auto spacing(4) auto;
         backdrop-filter: blur(10px);
+        overflow: hidden;
 
         @include screen('md') {
             margin-bottom: spacing(5);
@@ -348,12 +361,8 @@
         @include heading(6);
         display: flex;
         position: relative;
-        margin-bottom: spacing(1);
         justify-content: space-between;
-
-        @include screen('md') {
-            margin-bottom: spacing(3);
-        }
+        margin-bottom: spacing(1);
 
         @include screen('lg') {
             @include heading(5);
@@ -377,7 +386,18 @@
     }
 
     &__answer {
-        margin-bottom: spacing(1);
+        margin: spacing(1) 0;
+        transition: all 0.3s ease-in;
+
+        @include screen('md') {
+            margin: spacing(3) 0 spacing(1);
+        }
+
+        &.hidden {
+            opacity: 0;
+            height: 0;
+            margin: 0;
+        }
     }
 }
 
@@ -401,6 +421,16 @@
         text-align: center;
         margin-bottom: spacing(3);
         @include heading(5);
+
+        @include screen('md') {
+            grid-column: span 2;
+        }
+    }
+
+    &__success {
+        color: $primary-500;
+        text-align: center;
+        @include text('lg');
 
         @include screen('md') {
             grid-column: span 2;
