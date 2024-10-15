@@ -22,6 +22,7 @@
     }
 
     &__pre {
+        @include dropshadow;
         @include screen('md') {
             margin-left: spacing(7);
         }
@@ -33,7 +34,9 @@
     }
 
     &__tagline {
+        @include dropshadow;
         margin-top: spacing(2);
+
         @include screen('md') {
             margin-left: spacing(10);
         }
@@ -143,13 +146,14 @@
     }
 }
 
-.projects {
+.home-projects {
     padding-top: spacing(6);
 
     &__title {
         text-align: center;
         @include heading(5);
         margin-bottom: spacing(5);
+        @include dropshadow;
 
         > strong {
             font-weight: bold;
@@ -162,32 +166,6 @@
         @include screen('lg') {
             @include heading(3);
         }
-    }
-
-    &__list {
-        @include heading(3);
-        display: inline-block;
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-
-        @include screen('md') {
-            @include heading(1);
-        }
-    }
-
-    &__item {
-        margin-bottom: spacing(5);
-        > a {
-            display: inline-block;
-        }
-        > * {
-            @include inherit
-        }
-    }
-
-    &__thumbnail {
-        border-radius: 999px;
     }
 }
 
@@ -334,6 +312,7 @@
         text-align: center;
         margin-bottom: spacing(3);
         @include heading(5);
+        @include dropshadow;
 
         @include screen('md') {
             @include heading(4);
