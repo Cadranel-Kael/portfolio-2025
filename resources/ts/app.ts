@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-skew]').forEach((e) => {
         new Skew(e as HTMLElement, {});
     })
-    if(window.matchMedia(("(any-hover: none)")).matches) {
+    if(window.matchMedia(("(hover: none)")).matches) {
         new Mouse(document.querySelector('#canvas'), {});
     }
 });
