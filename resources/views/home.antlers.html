@@ -24,15 +24,17 @@
             <p itemprop="description" class="about__bio">{{ about_bio }}</p>
         </div>
     </section>
-    <section class="projects">
-        <h2 class="projects__title">{{ projects_title | strip_tags('p') }}</h2>
-        <ul class="projects__list">
+    <section class="home-projects">
+        <h2 class="home-projects__title">{{ projects_title | strip_tags('p') }}</h2>
+        <ul class="projects-list">
             {{ projects }}
-            <li data-marquee class="projects__item">
+            <li data-marquee {{ if index % 2 }} data-direction="right" {{ /if }} class="projects-list__item">
                 <a href="{{ url }}">
+                <span data-skew>
                 {{ title }}
+                </span>
                 {{ thumbnail }}
-                {{ responsive:thumbnail glide:width="100" ratio="1/1" class="projects__thumbnail" }}
+                {{ responsive:thumbnail glide:width="100" ratio="1/1" class="projects-list__thumbnail" }}
                 {{ /thumbnail }}
                 </a>
             </li>
@@ -57,12 +59,12 @@
     </section>
     <section class="faq">
         <h2 class="faq__title">FAQ</h2>
-        <dl class="faq__item" data-accordian>
-            {{ qa }}
+        {{ qa }}
+        <dl class="faq__item clickable" data-accordian>
             <dt class="faq__question">{{ question }}</dt>
             <dd data-collapsible class="faq__answer">{{ answer }}</dd>
-            {{ /qa }}
         </dl>
+        {{ /qa }}
     </section>
     {{ partial:contact }}
 </div>
