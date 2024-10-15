@@ -1,0 +1,25 @@
+@use '../abstracts/typography' as *;
+@use '../abstracts/spacing' as *;
+@use '../abstracts/screens' as *;
+
+.projects {
+    margin-top: spacing(10);
+
+    @include screen('md') {
+        margin-top: spacing(16);
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: spacing(8);
+        @include heading(3);
+        @include dropshadow;
+
+        @include screen('md') {
+            @include heading(2);
+        }
+        @include screen('lg') {
+            @include heading(1);
+        }
+    }
+}
