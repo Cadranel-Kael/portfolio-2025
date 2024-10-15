@@ -10,13 +10,13 @@
             {{ fields }}
             <div class="contact__field
                 {{ if field|contains:textarea }} contact__textarea {{ /if }}">
-                <label class="contact__label" for="{{ handle }}">
+                <label class="contact__label clickable" for="{{ handle }}">
                     {{ display }}
                     {{ if validate|contains:required }}
                         <span class="color-alert">*</span>
                     {{ /if }}
                 </label>
-                <div class="contact__input">
+                <div class="contact__input clickable">
                     {{ field }}
                 </div>
                 {{ if error }}
