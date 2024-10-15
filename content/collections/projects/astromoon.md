@@ -1,10 +1,11 @@
 ---
 id: efd82fad-98c2-494b-84e3-7898576b52a6
+published: false
 blueprint: project
 title: AstromooN
 author: aaccd2d7-2d75-42a0-a696-a175add5eacb
 updated_by: aaccd2d7-2d75-42a0-a696-a175add5eacb
-updated_at: 1728753144
+updated_at: 1728910968
 thumbnail:
   - sef-home.webp
 tags:

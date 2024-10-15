@@ -33,18 +33,30 @@ qualifications:
 faq_title: FAQ
 qa:
   -
+    id: m2957vlk
+    question: 'What services do you offer?'
+    answer: 'I specialize in web design and web development. My services include custom website design, front-end and back-end development, UI/UX design, responsive and mobile-first design, website maintenance, and optimization. I can also help with CMS integration (e.g., WordPress, Statamic), e-commerce solutions, and web applications.'
+    type: new_set
+    enabled: true
+  -
     id: m1g45z20
     question: 'How much will it cost to develop my website?'
     answer: "It's difficult to provide an accurate time frame without knowing the specific requirements and complexity of your website. However, the development process typically ranges from a few weeks to a few months, depending on factors such as design, functionality, content, and revisions."
     type: new_set
     enabled: true
+  -
+    id: m2959ilv
+    question: 'Can you help with redesigning an existing website?'
+    answer: 'Absolutely! I can evaluate your current website and propose a redesign strategy that enhances its usability, aesthetics, and performance. Whether you want a complete overhaul or just a refresh, I can help make your site more modern and efficient.'
+    type: new_set
+    enabled: true
 contact_title: Contact
 updated_by: aaccd2d7-2d75-42a0-a696-a175add5eacb
-updated_at: 1727385234
+updated_at: 1728918233
 about_image: kael-cadranel.png
 contact_form: contact
 projects:
-  - efd82fad-98c2-494b-84e3-7898576b52a6
   - 3c9088bb-fdb1-4d82-b2e1-7ab4693aff3e
+  - 7b9bf7d7-8f5c-463e-8872-620888f4a878
   - 8e9aead2-1ec5-41ca-bd3f-8b6d9df2f63e
 ---
