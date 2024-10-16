@@ -5,12 +5,16 @@
 @use "../abstracts/borders" as *;
 @use "../abstracts/icons" as *;
 @use "../abstracts/helpers" as *;
+@forward "../abstracts/animation";
 
 .hero {
+    z-index: -1;
+    position: relative;
     overflow: hidden;
     height: 100vh;
     @include heading(4, bold);
     padding: 0 10%;
+    min-height: 56.25rem;
 
     &__inner {
         max-width: 72.375rem;
@@ -22,15 +26,35 @@
     }
 
     &__pre {
+        position: relative;
         @include dropshadow;
         @include screen('md') {
             margin-left: spacing(7);
         }
+        &:after {
+            content: '';
+            background: $black;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            filter: none;
+        }
+        &.in-view {
+            animation: fade-in ease-in 0.3s 0.3s both;
+            &:after {
+                animation: clip-out ease-in 1s 1s both;
+            }
+        }
     }
 
-    &__plant {
-        width: 115%;
+    &__planet {
+        width: 120%;
         overflow: hidden;
+        .planet {
+                animation: planet-orbit 5s infinite ease-in-out, glow-pulse 3s infinite alternate;
+        }
     }
 
     &__tagline {
@@ -40,6 +64,18 @@
         @include screen('md') {
             margin-left: spacing(10);
         }
+        &.in-view {
+            animation: fade-in ease-in 0.3s 0.3s both;
+        }
+    }
+
+    &__next {
+        color: $white;
+        text-decoration: none;
+        font-size: 3rem;
+        display: inline-block;
+        margin: 0 auto;
+        z-index: 1;
     }
 }
 
@@ -168,7 +204,6 @@
         }
     }
 }
-
 
 
 .qualifications {
@@ -357,23 +392,32 @@
                 left: -3rem;
             }
         }
+
         &:after {
-            //@include icon(arrow);
+            @include icon(arrow);
             font-size: 1.3125rem;
             transform: rotate(90deg);
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
+    .closed {
+        > .faq__question:after {
+            transform: rotate(180deg);
         }
     }
 
     &__answer {
         margin: spacing(1) 0;
-        transition: all 0.3s ease-in;
+        transition: all 0.5s ease-in-out;
+        height: auto;
+        interpolate-size: allow-keywords;
 
         @include screen('md') {
             margin: spacing(3) 0 spacing(1);
         }
 
         &.hidden {
-            opacity: 0;
             height: 0;
             margin: 0;
         }
@@ -480,6 +524,7 @@
 
         &:hover {
             color: $white;
+
             &:before {
                 width: 100%;
             }
