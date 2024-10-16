@@ -23,12 +23,14 @@ export class Accordion {
     }
 
     close() {
-        this.collapsible.classList.add('hidden')
+        this.clickable.classList.add('closed');
+        this.collapsible.classList.add('hidden');
         this.collapsible.ariaExpanded = 'false';
         this.isExpanded = false;
     }
 
     expand() {
+        this.clickable.classList.remove('closed');
         this.collapsible.classList.remove('hidden')
         this.collapsible.ariaExpanded = 'true';
         this.isExpanded = true;
