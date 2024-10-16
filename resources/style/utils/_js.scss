@@ -26,3 +26,24 @@
     pointer-events: none;
     mix-blend-mode: difference;
 }
+
+@keyframes to-page {
+    0% {
+        right: 0;
+        left: 100vw;
+    }
+    100% {
+        right: 0;
+        left: 0;
+    }
+}
+
+.page-transition {
+    position: fixed;
+    height: 100vh;
+    background: $black;
+    z-index: 200;
+    .to-page {
+        animation: to-page 1s ease-in;
+    }
+}

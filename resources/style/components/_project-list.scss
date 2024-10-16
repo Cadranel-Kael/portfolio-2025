@@ -5,28 +5,32 @@
 
 .projects-list {
     @include heading(3);
-    display: inline-block;
-    width: 100%;
-    white-space: nowrap;
+    display: block;
     overflow: hidden;
+    position: relative;
+    width: 100%;
 
     @include screen('md') {
         @include heading(1);
     }
 
     &__item {
-        display: flex;
-        align-items: center;
+        display: inline-block;
+        white-space: nowrap;
+        width: 100%;
         @include dropshadow;
 
         > a {
             display: inline-block;
-            margin: 0 spacing(5) spacing(5) 0;
+            box-sizing: border-box;
+            padding: 0 spacing(5) spacing(5) 0;
+            margin-bottom: spacing(6);
         }
 
         > * {
             @include inherit
         }
+
     }
 
     &__thumbnail {
