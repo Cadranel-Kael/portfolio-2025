@@ -1,16 +1,16 @@
 <div class="home">
-    <section class="hero">
+    <section class="hero" data-parallax="0.9">
         <div class="hero__inner">
-            <span class="hero__pre">{{ hero_pre_title }}</span>
+            <span class="hero__pre" data-observe>{{ hero_pre_title }}</span>
             <h2 class="sr-only">Kael Cadranel</h2>
-            <div class="hero__planet">
+            <div class="hero__planet" data-observe>
                 {{ partial:planet }}
             </div>
-            <span class="hero__tagline">{{ hero_tagline }}</span>
-            {{#         <a href="#">Next section</a> #}}
+            <span class="hero__tagline" data-observe>{{ hero_tagline }}</span>
+            <a href="#about" title="Next section" class="hero__next icon-long-arrow"></a>
         </div>
     </section>
-    <section class="about">
+    <section class="about" id="about">
         <div class="about__inner">
             <div class="about__title">
                 <span class="about__pre">{{ about_pre }}</span>
@@ -29,7 +29,7 @@
         <ul class="projects-list">
             {{ projects }}
             <li data-marquee {{ if index % 2 }} data-direction="right" {{ /if }} class="projects-list__item">
-                <a href="{{ url }}">
+                <a href="{{ url }}" data-transition>
                 <span data-skew>
                 {{ title }}
                 </span>
