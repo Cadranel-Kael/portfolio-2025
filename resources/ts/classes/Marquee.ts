@@ -1,6 +1,6 @@
 const DEFAULT_SPEED = 1;
 const DEFAULT_DIRECTION = 'left';
-const DEFAULT_WIDTH_FACTOR = 3;
+const DEFAULT_WIDTH_FACTOR = 2;
 
 /**
  * Configuration interface for the Marquee class.
@@ -104,14 +104,14 @@ export class Marquee {
 
         if (this._direction === 'left') {
             this.currentPosition -= this._speed;
-            if (this.currentPosition < -this.element.offsetWidth) {
+            if (this.currentPosition <= -this.element.offsetWidth) {
                 this.reset();
             }
         }
 
         if (this._direction === 'right') {
             this.currentPosition += this._speed;
-            if (this.currentPosition > 0) {
+            if (this.currentPosition >= 0) {
                 this.reset();
             }
         }
@@ -144,4 +144,5 @@ export class Marquee {
             this.currentPosition = -this.element.offsetWidth;
         }
     }
+
 }
