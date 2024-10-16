@@ -1,15 +1,33 @@
 @use "helpers" as *;
 
 $icons: (
-  'instagram': "\e901",
-  'github': "\e900",
-  'star': "\e902",
-  'arrow': "\e903",
+    'instagram': "\e901",
+    'github': "\e900",
+    'star': "\e902",
+    'arrow': "\e903",
+    'long-arrow': "\e904",
 );
 
 @each $name, $glyph in $icons {
-  .icon-#{$name}:before {
-    content: $glyph;
+    .icon-#{$name}:before {
+        content: $glyph;
+        font-family: 'icomoon' !important;
+        speak: never;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        @include inherit;
+    }
+}
+
+@mixin icon($icon) {
+    content: map-get($icons, $icon);
     font-family: 'icomoon' !important;
     speak: never;
     font-style: normal;
@@ -22,21 +40,4 @@ $icons: (
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     @include inherit;
-  }
-}
-
-@mixin icon($icon) {
-  content: map-get($icons, $icon);
-  font-family: 'icomoon' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  @include inherit;
 }
