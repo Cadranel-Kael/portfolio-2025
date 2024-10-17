@@ -7,6 +7,10 @@ export default defineConfig({
             input: [
                 'resources/style/app.scss',
                 'resources/ts/app.ts',
+                'resources/images/favicon-32x32.png',
+                'resources/images/favicon-16x16.png',
+                'resources/images/apple-touch-icon.png',
+                'resources/images/site.webmanifest',
 
                 // Control Panel assets.
                 // https://statamic.dev/extending/control-panel#adding-css-and-js-assets
