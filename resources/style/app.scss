@@ -2,6 +2,7 @@
 @forward './base/fontfaces';
 @forward './base/base';
 @forward "./pages/home";
+@forward "./pages/contact-page";
 @forward "./pages/project";
 @forward "./pages/projects";
 @forward "./partials/header";
@@ -11,3 +12,4 @@
 @forward "./abstracts/colors";
 @forward "./abstracts/icons";
 @forward "./components/project-list";
+@forward "./components/gallery";

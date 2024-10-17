@@ -2,6 +2,7 @@
 @use '../abstracts/spacing' as *;
 @use '../abstracts/screens' as *;
 @use '../abstracts/helpers' as *;
+@use '../abstracts/animation' as *;
 
 .projects-list {
     @include heading(3);
@@ -19,6 +20,7 @@
         white-space: nowrap;
         width: 100%;
         @include dropshadow;
+        position: relative;
 
         > a {
             display: inline-block;

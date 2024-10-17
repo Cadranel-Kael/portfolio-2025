@@ -14,7 +14,24 @@
     height: 100vh;
     @include heading(4, bold);
     padding: 0 10%;
-    min-height: 56.25rem;
+
+    @include screen('md') {
+        min-height: 56.25rem;
+    }
+
+    .planet {
+        &__first {
+            &.in-view {
+                animation: fade-in--left 1s 0.6s both ease-in;
+            }
+        }
+        &__last {
+            opacity: 50%;
+            &.in-view {
+                animation: fade-in--right 1s 0.6s both ease-in;
+            }
+        }
+    }
 
     &__inner {
         max-width: 72.375rem;
@@ -31,29 +48,19 @@
         @include screen('md') {
             margin-left: spacing(7);
         }
-        &:after {
-            content: '';
-            background: $black;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            left: 0;
-            filter: none;
-        }
+
         &.in-view {
-            animation: fade-in ease-in 0.3s 0.3s both;
-            &:after {
-                animation: clip-out ease-in 1s 1s both;
-            }
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
         }
     }
 
     &__planet {
         width: 120%;
         overflow: hidden;
+
         .planet {
-                animation: planet-orbit 5s infinite ease-in-out, glow-pulse 3s infinite alternate;
+            animation: planet-orbit ease-in-out 5s infinite;
+            transition: all ease-in 3s;
         }
     }
 
@@ -64,8 +71,9 @@
         @include screen('md') {
             margin-left: spacing(10);
         }
+
         &.in-view {
-            animation: fade-in ease-in 0.3s 0.3s both;
+            animation: fade-in--bottom ease-in 0.3s 0.9s both;
         }
     }
 
@@ -75,7 +83,7 @@
         font-size: 3rem;
         display: inline-block;
         margin: 0 auto;
-        z-index: 1;
+        z-index: 100;
     }
 }
 
@@ -83,6 +91,7 @@
     background: $white;
     color: $black;
     width: 100%;
+
     @include screen('md') {
         margin-bottom: spacing(8);
     }
@@ -110,14 +119,23 @@
         }
     }
 
-    &__pre:after {
-        margin-left: spacing(2);
-        font-size: 2rem;
-        @include icon('star');
+    &__pre {
+        display: inline-block;
+        &.in-view {
+            animation: fade-in ease-in 0.3s 0.3s both;
+        }
+
+        &:after {
+            margin-left: spacing(1);
+            @include icon('star');
+        }
     }
 
     &__heading {
         font-weight: bold;
+        &.in-view {
+            animation: fade-in ease-in 0.3s 0.6s both;
+        }
     }
 
     &__title {
@@ -140,6 +158,9 @@
             grid-area: bio;
             margin-left: spacing(12);
         }
+        &.in-view {
+            animation: fade-in ease-in 0.3s 0.3s both;
+        }
     }
 
     &__image {
@@ -152,6 +173,9 @@
             width: column(3);
             top: 0;
             margin: 0;
+        }
+        &.in-view {
+            animation: fade-in ease-in 0.3s 0.3s both;
         }
 
         @include screen('lg') {
@@ -191,6 +215,10 @@
         margin-bottom: spacing(5);
         @include dropshadow;
 
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
+
         > strong {
             font-weight: bold;
         }
@@ -211,15 +239,22 @@
     color: $black;
 
     &__inner {
-        padding: spacing(3) 10% spacing(6);
+        padding: spacing(4) 10% spacing(6);
         margin: auto;
         max-width: column(12);
+
+        @include screen('md') {
+            padding: spacing(10) 0 spacing(6);
+        }
     }
 
     &__title {
         text-align: center;
         margin-bottom: spacing(4);
         @include heading(5);
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
 
         @include screen('md') {
             margin-bottom: spacing(7);
@@ -228,6 +263,14 @@
 
         @include screen('lg') {
             @include heading(3);
+        }
+
+        &:before {
+            @include icon('star');
+        }
+
+        &:after {
+            @include icon('star');
         }
 
         strong {
@@ -247,18 +290,27 @@
                         grid-column: 2/3;
                         text-align: left;
                         margin-left: spacing(2);
+                        &.in-view {
+                            animation: fade-in--right ease-in 0.3s 0.3s both;
+                        }
                     }
 
                     &__year {
                         grid-column: 2/3;
                         text-align: left;
                         margin-left: spacing(2);
+                        &.in-view {
+                            animation: fade-in--right ease-in 0.3s 0.6s both;
+                        }
                     }
 
                     &__location {
                         grid-column: 2/3;
                         text-align: left;
                         margin-left: spacing(2);
+                        &.in-view {
+                            animation: fade-in--right ease-in 0.3s 0.9s both;
+                        }
                     }
 
                     &__description {
@@ -267,6 +319,9 @@
                         border: none;
                         border-right: solid $border-width $black;
                         text-align: right;
+                        &.in-view {
+                            animation: fade-in--left ease-in 0.3s 1.2s both;
+                        }
                     }
                 }
             }
@@ -286,6 +341,10 @@
                 @include heading(4);
                 margin-right: spacing(2);
             }
+
+            &.in-view {
+                animation: fade-in--left ease-in 0.3s 0.3s both;
+            }
         }
 
         &__year {
@@ -300,6 +359,10 @@
                 @include text(xl);
                 margin-right: spacing(2);
             }
+
+            &.in-view {
+                animation: fade-in--left ease-in 0.3s 0.6s both;
+            }
         }
 
         &__location {
@@ -312,6 +375,10 @@
 
             > * {
                 display: block;
+            }
+
+            &.in-view {
+                animation: fade-in--left ease-in 0.3s 0.9s both;
             }
         }
 
@@ -334,14 +401,21 @@
                 padding: 0 spacing(2);
                 margin: 0;
             }
+            &.in-view {
+                animation: fade-in--right ease-in 0.3s 1.2s both;
+            }
         }
     }
 }
 
 .faq {
-    padding: spacing(3) 10% spacing(6);
+    padding: spacing(4) 10% spacing(6);
     max-width: column(12);
     margin: auto;
+
+    @include screen('md') {
+        padding: spacing(10) 0 spacing(6);
+    }
 
     &__title {
         text-align: center;
@@ -357,6 +431,10 @@
         @include screen('lg') {
             @include heading(3);
         }
+
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
     }
 
     &__item {
@@ -364,10 +442,13 @@
         max-width: column(10);
         margin: 0 auto spacing(4) auto;
         backdrop-filter: blur(10px);
-        overflow: hidden;
+        display: grid;
 
         @include screen('md') {
             margin-bottom: spacing(5);
+        }
+        &.in-view {
+            animation: fade-in--right ease-in 0.3s 0.3s both;
         }
     }
 
@@ -383,10 +464,10 @@
         }
 
         &:before {
+            @include icon(star);
             position: absolute;
             left: -2rem;
             font-size: 2rem;
-            //@include icon(star);
 
             @include screen('md') {
                 left: -3rem;
@@ -397,6 +478,7 @@
             @include icon(arrow);
             font-size: 1.3125rem;
             transform: rotate(90deg);
+            transform-origin: center;
             transition: all 0.5s ease-in-out;
         }
     }
@@ -408,6 +490,7 @@
     }
 
     &__answer {
+        overflow: hidden;
         margin: spacing(1) 0;
         transition: all 0.5s ease-in-out;
         height: auto;
@@ -425,8 +508,13 @@
 }
 
 .contact {
+    padding: spacing(4) 10% spacing(6);
     background: $white;
     color: $black;
+
+    @include screen('md') {
+        padding: spacing(10) 0 spacing(6);
+    }
 
     &__inner {
         max-width: column(6);
@@ -448,6 +536,17 @@
         @include screen('md') {
             grid-column: span 2;
         }
+        @include screen('md') {
+            @include heading(4);
+        }
+
+        @include screen('lg') {
+            @include heading(3);
+        }
+
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
     }
 
     &__success {
@@ -464,6 +563,9 @@
         display: flex;
         flex-direction: column;
         margin-bottom: spacing(4);
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
     }
 
     &__label {

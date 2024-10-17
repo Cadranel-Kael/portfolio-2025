@@ -4,6 +4,7 @@
 @use '../abstracts/screens' as *;
 @use '../abstracts/helpers' as *;
 @use '../abstracts/icons' as *;
+@forward '../abstracts/animation';
 @forward '../components/buttons';
 
 .project {
@@ -12,6 +13,7 @@
     &__overview {
         max-width: column(12);
         margin: auto;
+        position: relative;
         @include screen('md') {
             max-width: column(24);
         }
@@ -41,10 +43,10 @@
         @include screen('lg') {
             @include heading(2);
         }
-    }
 
-    &__year {
-        @include heading(5);
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
     }
 
     &__tags {
@@ -57,6 +59,9 @@
             max-width: column(12);
             margin: 0 auto spacing(8);
         }
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.6s both;
+        }
     }
 
     &__tag:not(:last-child) {
@@ -64,6 +69,25 @@
 
         &:after {
             content: ","
+        }
+    }
+
+    &__year-wrapper {
+
+        margin-bottom: spacing(2);
+    }
+
+    &__year-title {
+        @include heading(5, bold);
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.9s both;
+        }
+    }
+
+    &__year {
+        @include heading(5);
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 1.2s both;
         }
     }
 
@@ -78,13 +102,14 @@
     }
 
     &__link {
+        overflow: clip;
         position: absolute;
         color: $black;
         background: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 10rem;
+        width: 100%;
         min-height: 10rem;
         border-radius: 999px;
         @include heading(5);
@@ -97,9 +122,44 @@
     &__live-image {
         max-height: 30rem;
         object-fit: cover;
-        width: 100vw;
+        width: 100%;
         max-width: column(24);
         height: auto;
+    }
+
+    &__github-wrapper {
+        position: fixed;
+        left:0;
+        right:0;
+        bottom: spacing(3);
+        margin-left:auto;
+        margin-right:auto;
+        max-width: column(12);
+        height: fit-content;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 10;
+    }
+
+    &__github-link {
+        display: inline-block;
+        background: $black;
+        color: $white;
+        text-decoration: none;
+        @include heading(5);
+        padding: spacing(1) spacing(1.5);
+        transition: all 0.3s ease-in-out;
+
+        &:after {
+            @include icon('arrow');
+            rotate: -45deg;
+            display: inline-block;
+        }
+
+        &:hover {
+            background: $white;
+            color: $black;
+        }
     }
 
     &__section-title {
@@ -113,13 +173,22 @@
         @include screen('lg') {
             @include heading(3)
         }
+
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
+    }
+
+    &__description {
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.6s both;
+        }
     }
 
     &__info-section {
         background: $white;
         color: $black;
         padding: spacing(5) 10%;
-
     }
 
     &__info-inner {
@@ -136,6 +205,18 @@
         margin-bottom: spacing(5);
     }
 
+    &__image-wrapper {
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.3s both;
+        }
+    }
+
+    &__challenges {
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.6s both;
+        }
+    }
+
     &__objective {
         display: flex;
         gap: spacing(0.5);
@@ -143,6 +224,16 @@
         &:before {
             margin-top: spacing(0.5);
             @include icon('star')
+        }
+
+        &.in-view {
+            animation: fade-in--right ease-in 0.3s 0.6s both;
+        }
+    }
+
+    &__technologies {
+        &.in-view {
+            animation: fade-in--right ease-in 0.3s 0.6s both;
         }
     }
 
@@ -179,10 +270,19 @@
         text-align: center;
     }
 
+    &__contact-text {
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.6s both;
+        }
+    }
+
     &__contact-link {
         @extend .button--arrow;
         margin: spacing(8) auto 0;
         max-width: spacing(16);
+        &.in-view {
+            animation: fade-in--bottom ease-in 0.3s 0.9s both;
+        }
     }
 
 }
