@@ -12,15 +12,16 @@ export class Parallax {
     constructor(element: HTMLElement, config: ParallaxConfig) {
         this.element = element;
         this.speed = config.speed || DEFAULT_SPEED;
+        this.translate();
         this.addEventListeners();
     }
 
     addEventListeners() {
-        window.addEventListener('scroll', () => {
-            this.scrollPosition = window.scrollY;
+        window.addEventListener('scroll', this.translate.bind(this))
+    }
 
-            this.element.style.transform = `translateY(${this.scrollPosition * this.speed}px)`
-        })
-
+    translate() {
+        this.scrollPosition = window.scrollY;
+        this.element.style.transform = `translateY(${this.scrollPosition * this.speed}px)`
     }
 }
