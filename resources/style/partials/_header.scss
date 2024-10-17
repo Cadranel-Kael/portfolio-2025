@@ -8,16 +8,27 @@
 .js {
     .header {
         position: fixed;
+        height: fit-content;
 
         &__menus {
             @include screen('md', 'max') {
                 display: flex;
                 flex-direction: column;
-                height: 100vh;
+                height: 88vh;
                 justify-content: center;
                 &.closed {
                     display: none;
                 }
+            }
+        }
+
+        .main-nav {
+            flex: 1;
+            &__list {
+                display: flex;
+                height: 100%;
+                box-sizing: border-box;
+                justify-content: center;
             }
         }
     }
@@ -146,7 +157,7 @@
             }
 
             &__item {
-                @include text(lg);
+                @include text(xl);
                 position: relative;
 
                 &:before {
