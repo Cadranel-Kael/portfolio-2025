@@ -1,6 +1,10 @@
+import {ViewTriggerAnimation} from "./ViewTriggerAnimation";
+
 const DEFAULT_SPEED = 1;
 const DEFAULT_DIRECTION = 'left';
 const DEFAULT_WIDTH_FACTOR = 2;
+const DEFAULT_SKEW = '20deg'
+const DEFAULT_SCROLL_IN_SPEED = 15;
 
 /**
  * Configuration interface for the Marquee class.
@@ -13,6 +17,8 @@ interface MarqueeConfig {
     direction?: string; // Default: 'left'
     /** The width factor to determine how many times the element should repeat in the container. Default is 3. */
     widthFactor?: number; // Default: 3
+    skew?: string;
+    scrollInSpeed?: number;
 }
 
 /**
@@ -20,21 +26,16 @@ interface MarqueeConfig {
  * @class Marquee
  */
 export class Marquee {
+    private elements: Array<HTMLElement>;
     private _direction: string;
     private readonly element: HTMLElement;
     private container: HTMLElement;
     private currentPosition: number;
     private isPaused: boolean;
-    private _speed: number;
+    private speed: number;
     private readonly widthFactor: number;
-
-    /**
-     * Sets the speed of the marquee scrolling.
-     * @param {number} value - The speed to set for scrolling.
-     */
-    set speed(value: number) {
-        this._speed = value;
-    }
+    private skew: string;
+    private scrollInSpeed: number;
 
     /**
      * Gets the direction of the scrolling.
@@ -60,10 +61,13 @@ export class Marquee {
      */
     constructor(container: HTMLElement, element: HTMLElement, config: MarqueeConfig) {
         this.element = element;
+        this.elements = [element];
         this.container = container;
         this.speed = config.speed || DEFAULT_SPEED;
         this._direction = config.direction || DEFAULT_DIRECTION;
         this.widthFactor = config.widthFactor || DEFAULT_WIDTH_FACTOR;
+        this.skew = config.skew || DEFAULT_SKEW;
+        this.scrollInSpeed = config.scrollInSpeed || DEFAULT_SCROLL_IN_SPEED;
         this.reset();
         this.fillWidth();
         this.addEventListeners();
@@ -76,6 +80,9 @@ export class Marquee {
     addEventListeners() {
         this.container.addEventListener('mouseover', this.pause.bind(this));
         this.container.addEventListener('mouseleave', this.resume.bind(this));
+        new ViewTriggerAnimation([this.element], {
+            callback: this.scrollIn.bind(this),
+        })
         window.addEventListener('resize', this.fillWidth.bind(this));
     }
 
@@ -93,7 +100,55 @@ export class Marquee {
             const clonedElement = this.element.cloneNode(true);
             this.container.appendChild(clonedElement);
             elementWidth += this.element.offsetWidth;
+            this.elements.push(clonedElement as HTMLElement);
         }
+    }
+
+    scrollIn() {
+        const duration = 1000;
+        const startSpeed = this.speed;
+        const endSpeed = this.speed * this.scrollInSpeed;
+        const startTime = performance.now();
+        if (this.direction === 'left') {
+            this.currentPosition = this.container.offsetWidth;
+        }
+
+        if (this.direction === 'right') {
+            this.currentPosition = -this.container.offsetWidth * this.widthFactor;
+        }
+
+        const easeInQuad = (t: number) => t * t;
+
+        const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            this.speed = startSpeed + (endSpeed - startSpeed) * easeInQuad(progress);
+            if (this.direction === 'left') {
+                this.elements.forEach((e) => {
+                    e.style.transform = `skew(${this.skew})`;
+                })
+            }
+
+            if (this.direction === 'right') {
+                this.elements.forEach((e) => {
+                    e.style.transform = `skew(-${this.skew})`;
+                })
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                setTimeout(() => {
+                    this.speed = startSpeed;
+                    this.elements.forEach((e) => {
+                        e.style.transform = 'skew(0)';
+                    });
+                }, 1000);
+            }
+        };
+
+        requestAnimationFrame(animate); // Start the animation
     }
 
     /**
@@ -103,14 +158,14 @@ export class Marquee {
         if (this.isPaused) return;
 
         if (this._direction === 'left') {
-            this.currentPosition -= this._speed;
+            this.currentPosition -= this.speed;
             if (this.currentPosition <= -this.element.offsetWidth) {
                 this.reset();
             }
         }
 
         if (this._direction === 'right') {
-            this.currentPosition += this._speed;
+            this.currentPosition += this.speed;
             if (this.currentPosition >= 0) {
                 this.reset();
             }
