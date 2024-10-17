@@ -4,11 +4,10 @@ blueprint: project
 title: 'Curriculum vitae'
 author: aaccd2d7-2d75-42a0-a696-a175add5eacb
 updated_by: aaccd2d7-2d75-42a0-a696-a175add5eacb
-updated_at: 1728753132
+updated_at: 1729086909
 thumbnail:
   - screenshot-2024-10-12-at-15.20.19.png
 description: 'In the 2nd year of my Graphic Design degree, I worked on a project that involved replicating the design of an existing website while adapting and personalizing the HTML and CSS. The challenge was to create a responsive layout using semantic HTML5, ensuring the code was valid, accessible, and enhanced with microdata for usability. The design was flexible, featuring both mobile and desktop versions to provide an optimal user experience across devices.'
-project_link: 'https://cv.kael.digital'
 github: 'https://github.com/Cadranel-Kael/CV'
 objectives: true
 objectives_list:
