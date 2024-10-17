@@ -28,3 +28,4 @@ yarn-error.log
 /storage/framework/views/*
 /storage/framework/testing/*
 /storage/statamic/
+/storage/forms/contact/*
