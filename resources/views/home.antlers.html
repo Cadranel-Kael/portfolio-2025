@@ -7,28 +7,28 @@
                 {{ partial:planet }}
             </div>
             <span class="hero__tagline" data-observe>{{ hero_tagline }}</span>
-            <a href="#about" title="Next section" class="hero__next icon-long-arrow"></a>
+{{#             <a href="#about" title="Next section" class="hero__next icon-long-arrow"></a> #}}
         </div>
     </section>
     <section class="about" id="about">
         <div class="about__inner">
             <div class="about__title">
-                <span class="about__pre">{{ about_pre }}</span>
-                <h2 class="about__heading">{{ about_title }}</h2>
+                <span class="about__pre" data-observe>{{ about_pre }}</span>
+                <h2 class="about__heading" data-observe>{{ about_title }}</h2>
             </div>
-            <figure class="about__image" itemprop="image">
+            <figure data-observe class="about__image" itemprop="image">
                 {{ about_image }}
                 {{ responsive:about_image }}
                 {{ /about_image }}
             </figure>
-            <p itemprop="description" class="about__bio">{{ about_bio }}</p>
+            <p data-observe itemprop="description" class="about__bio">{{ about_bio }}</p>
         </div>
     </section>
     <section class="home-projects">
-        <h2 class="home-projects__title">{{ projects_title | strip_tags('p') }}</h2>
+        <h2 class="home-projects__title" data-observe>{{ projects_title | strip_tags('p') }}</h2>
         <ul class="projects-list">
             {{ projects }}
-            <li data-marquee {{ if index % 2 }} data-direction="right" {{ /if }} class="projects-list__item">
+            <li data-observe data-marquee {{ if index % 2 }} data-direction="right" {{ /if }} class="projects-list__item">
                 <a href="{{ url }}" data-transition>
                 <span data-skew>
                 {{ title }}
@@ -43,24 +43,24 @@
     </section>
     <section class="qualifications">
         <div class="qualifications__inner">
-            <h2 class="qualifications__title">{{ qualifications_title }}</h2>
+            <h2 class="qualifications__title" data-observe>{{ qualifications_title }}</h2>
             {{ qualifications }}
             <article itemprop="hasCredential" itemscope itemtype="https://schema.org/EducationalOccupationalCredential"
                      class="qualifications__qualification-item qualification-item">
-                <h3 class="qualification-item__title" itemprop="name">{{ title }}</h3>
-                <div class="qualification-item__year" itemprop="dateCreated">{{ year }}</div>
-                <div class="qualification-item__location" itemprop="recognizedBy" itemscope
+                <h3 data-observe class="qualification-item__title" itemprop="name">{{ title }}</h3>
+                <div data-observe class="qualification-item__year" itemprop="dateCreated">{{ year }}</div>
+                <div data-observe class="qualification-item__location" itemprop="recognizedBy" itemscope
                      itemtype="https://schema.org/Organization"><span itemprop="name">{{ institute }},</span><span
                     itemprop="location">{{ location }}</span></div>
-                <div class="qualification-item__description" itemprop="description">{{ description }}</div>
+                <div data-observe class="qualification-item__description" itemprop="description">{{ description }}</div>
             </article>
             {{ /qualifications }}
         </div>
     </section>
     <section class="faq">
-        <h2 class="faq__title">FAQ</h2>
+        <h2 class="faq__title" data-observe>FAQ</h2>
         {{ qa }}
-        <dl class="faq__item clickable" data-accordian>
+        <dl data-observe class="faq__item clickable" data-accordian>
             <dt class="faq__question">{{ question }}</dt>
             <dd data-collapsible class="faq__answer">{{ answer }}</dd>
         </dl>
