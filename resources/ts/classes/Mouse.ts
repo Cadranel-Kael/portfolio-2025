@@ -1,8 +1,8 @@
 const DEFAULT_SIZE = 20;
-const DEFAULT_TRAIL_SIZE = 20;
+const DEFAULT_TRAIL_SIZE = 30;
 const DEFAULT_HOVER_SIZE_MULTIPLIER = 1.5;
-const DEFAULT_TRAIL_DECAY_FACTOR = 0.85;
-const DEFAULT_TRAIL_SPEED = 0.1;
+const DEFAULT_TRAIL_DECAY_FACTOR = 0.80;
+const DEFAULT_TRAIL_SPEED = 0.2;
 
 /**
  * Configuration interface for the Mouse class.
