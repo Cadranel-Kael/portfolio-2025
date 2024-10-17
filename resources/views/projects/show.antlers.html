@@ -2,11 +2,11 @@
     <section class="project__section project__overview">
         <h2 class="sr-only">Project overview</h2>
     <div class="project__basic">
-        <div class="project__title">
+        <div data-observe class="project__title">
             {{ title }}
         </div>
         {{ if tags }}
-            <ul class="project__tags">
+            <ul data-observe class="project__tags">
                 {{ tags }}
                 <li class="project__tag">
                     {{ title }}
@@ -14,13 +14,32 @@
                 {{ /tags }}
             </ul>
         {{ /if }}
-        <dl class="project__year">
-            <dt>Year</dt>
-            <dd>{{ year }}</dd>
+        <dl class="project__year-wrapper">
+            <dt data-observe class="project__year-title">Year</dt>
+            <dd data-observe class="project__year">{{ year }}</dd>
         </dl>
     </div>
-        <div class="project__link-wrapper">
-        {{ if project_link }}
+        {{ if github }}
+        {{ github }}
+        <div class="project__github-wrapper">
+            <a href="{{ url }}" class="project__github-link" hreflang="en" title="Go to the repo of {{ title }}" target="_blank">Github</a>
+        </div>
+        {{ /github }}
+        {{ /if }}
+    </section>
+    <section class="project__section project__info-section">
+    <div class="project__info-inner">
+    <h2 data-observe class="sr-only">Project info</h2>
+    <section class="project__info">
+        <h3 data-observe class="project__section-title project__intro-title  ">
+            Introduction
+        </h3>
+        <p data-observe class="project__description">
+            {{ description }}
+        </p>
+    </section>
+    <div class="project__image-wrapper" data-observe>
+    {{ if project_link }}
         <div class="project__link">
             {{ project_link }}
             <a href="{{ url }}" title="View {{ title }} live" class="project__live-link" target="_blank">
@@ -28,55 +47,37 @@
             </a>
             {{ /project_link }}
         </div>
-        {{ /if }}
-            {{ responsive:thumbnail glide:width="2000" class="project__live-image" }}
-        </div>
-        {{ if github_link }}
-        {{ github_link }}
-        <a href="{{ url }}" class="project__github-link" hreflang="en" title="Go to the repo of {{ title }}" target="_blank">Github</a>
-        {{ /github_link }}
-        {{ /if }}
-    </section>
-    <section class="project__section project__info-section">
-    <div class="project__info-inner">
-    <h2 class="sr-only">Project info</h2>
-    <section class="project__info">
-        <h3 class="project__section-title project__intro-title  ">
-            Introduction
-        </h3>
-        <p class="project__description">
-            {{ description }}
-        </p>
-    </section>
-        <div></div>
+    {{ /if }}
+    {{ responsive:thumbnail glide:width="2000" class="project__live-image"}}
+    </div>
     {{ if challenges }}
     <section class="project__info">
-        <h3 class="project__section-title">
+        <h3 data-observe class="project__section-title">
             Challenges
         </h3>
-        <p class="project__challenges">
+        <p data-observe class="project__challenges">
             {{ challenge }}
         </p>
     </section>
     {{ /if objectives }}
     {{ if objectives }}
-    <section class="project__info">
-        <h3 class="project__section-title">
+    <section  class="project__info">
+        <h3 data-observe class="project__section-title">
             Strategies & Goals
         </h3>
         <ul class="project__objectives">
             {{ objectives_list }}
-            <li class="project__objective">{{ value }}</li>
+            <li data-observe class="project__objective">{{ value }}</li>
             {{ /objectives_list }}
         </ul>
     </section>
     {{ /if objectives }}
     {{ if technologies_used }}
     <section class="project__info">
-        <h3 class="project__section-title">
+        <h3 data-observe class="project__section-title">
             Technologies Used
         </h3>
-        <dl class="project__technologies">
+        <dl data-observe class="project__technologies">
         {{ technologies }}
             <dt class="project__technology-category">
                 {{ title }}:
@@ -91,18 +92,22 @@
     </div>
     </section>
     {{ if gallery }}
-    <section class="project__section project__gallery-section">
+    <section data-observe class="project__section project__gallery-section">
         <h2 class="project__section-title project__gallery-title">Gallery</h2>
-        <div class="project__gallery">
+        <div data-gallery class="project__gallery gallery">
+            <button data-previous class="gallery__button gallery__previous icon-arrow" title="Previous"></button>
             {{ gallery }}
-            {{ responsive:url glide:width="2000" class="project__gallery-image" }}
+            <div data-image class="gallery__image-wrapper">
+                {{ responsive:url glide:width="2000" class="gallery__image" }}
+            </div>
             {{ /gallery }}
+            <button data-next class="gallery__button gallery__next icon-arrow" title="Next"></button>
         </div>
     </section>
     {{ /if }}
     <section class="project__section project__contact-section">
-        <h2 class="project__section-title">Let's create your universe</h2>
-        <p>Would you also have a universe for you or your brand ?</p>
-        <a href="/contact" class="project__contact-link">Contact me</a>
+        <h2 data-observe class="project__section-title">Let's create your universe</h2>
+        <p data-observe class="project__contact-text">Would you also have a universe for you or your brand ?</p>
+        <a data-observe href="/contact" class="project__contact-link">Contact me</a>
     </section>
 </div>
