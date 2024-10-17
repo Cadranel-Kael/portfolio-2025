@@ -8,7 +8,7 @@ objectives: true
 challenges: true
 technologies_used: true
 updated_by: aaccd2d7-2d75-42a0-a696-a175add5eacb
-updated_at: 1728753161
+updated_at: 1729086901
 description: "Jiri is an application that allows for the holding of a jury. For example, the Web Design courses in the 2nd year and Web Projects in the 3rd year of the Bachelor's in Graphic Design organized by the Haute École of the Province of Liège conclude with juries where students' work is evaluated by external members."
 technologies:
   -

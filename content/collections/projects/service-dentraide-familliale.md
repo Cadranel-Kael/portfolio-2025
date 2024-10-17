@@ -4,11 +4,10 @@ blueprint: project
 title: 'Service d’Entraide Familliale'
 author: aaccd2d7-2d75-42a0-a696-a175add5eacb
 updated_by: aaccd2d7-2d75-42a0-a696-a175add5eacb
-updated_at: 1728753152
+updated_at: 1729086925
 thumbnail:
   - sef-home.webp
 description: "This project involves the rebranding and recreation of the website for SEF, a belgian non-profit organization dedicated to helping the homeless by giving them a home and giving opportunities to reintegrate society. The goal is to enhance the online presence of SEF, making it more appealing and user-friendly, while accurately representing the organization's mission and values."
-project_link: sef.kael.digital
 objectives: true
 objectives_list:
   - 'Update the visual identity of SEF to create a modern and cohesive brand image.'
@@ -60,4 +59,5 @@ tags:
   - back-end
   - design
 year: 2024
+github: 'https://github.com/Cadranel-Kael/sef'
 ---
