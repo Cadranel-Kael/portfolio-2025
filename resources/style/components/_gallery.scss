@@ -1,0 +1,61 @@
+@use '../abstracts/colors' as *;
+
+.gallery {
+    overflow: scroll;
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+
+    &__image-wrapper {
+        display: flex;
+        flex-shrink: 0;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    &__image {
+        width: 60vw;
+        height: auto;
+    }
+
+    &__button {
+        display: none;
+    }
+}
+
+.js .gallery {
+    overflow: clip;
+
+    &__image-wrapper {
+        transition: all ease-in-out 0.3s;
+    }
+    &__button {
+        z-index: 10;
+        position: absolute;
+        background: $white;
+        color: $black;
+        border: none;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 99rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: ease-in-out all 0.3s;
+
+        &:hover {
+            background: $black;
+            color: $white;
+        }
+    }
+
+    &__previous {
+        rotate: 180deg;
+        left: 2%;
+    }
+
+    &__next {
+        right: 2%;
+    }
+}
