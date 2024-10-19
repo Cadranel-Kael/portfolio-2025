@@ -18,4 +18,15 @@ export default defineConfig({
         }),
         // vue2(),
     ],
+    build: {
+        manifest: true,  // Generate a manifest file with hashed assets
+        outDir: 'public/build',  // Define the output directory
+        rollupOptions: {
+            output: {
+                entryFileNames: '[name].[hash].js',  // Enable cache busting by hashing JS files
+                chunkFileNames: '[name].[hash].js',
+                assetFileNames: '[name].[hash].[ext]',  // Hash other assets like CSS, fonts, images
+            },
+        },
+    },
 });
