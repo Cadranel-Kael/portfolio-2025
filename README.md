@@ -1,43 +1,57 @@
-<p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo+Wordmark-Rad.svg" width="400" alt="Statamic Logo" /></p>
+# Portfolio 2025
 
-## About Statamic
+This repository contains the source code for my personal portfolio, showcasing my work, skills, and projects in web development and design. Built with a focus on responsive design and a clean, accessible interface, this portfolio serves as a hub for my online presence and as a demonstration of my expertise.
 
-Statamic is the flat-first, Laravel + Git powered CMS designed for building beautiful, easy to manage websites.
+## Project Structure
 
-> [!NOTE]
-> This repository contains the code for a fresh Statamic project that is installed via the Statamic CLI tool.
->
-> The code for the Statamic Composer package itself can be found at the [Statamic core package repository][cms-repo].
+The project is organized with a modern tech stack and a modular code structure, making it easily maintainable and scalable.
+
+## Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript, TypeScript
+- **Frameworks/Libraries**: Statamic, Laravel, Alpine.js, Livewire 3
+- **Styling**: Custom CSS with responsive design principles
+- **Typography**: Base font size of 16px, line height of 1.5, and using a Major Third ratio (1.250)
+- **Deployment**: Managed with Forge and DNS through DigitalOcean
+
+## Features
+
+- **Project Showcases**: Display a curated selection of my professional and personal projects.
+- **Responsive Design**: Optimized for both mobile and desktop experiences.
+- **Interactive Elements**: Leveraging Alpine.js for dynamic interactions and TypeScript for type-safe JavaScript.
+- **SEO & Accessibility**: Structured with semantic HTML5, microdata, and accessibility best practices.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Cadranel-Kael/portfolio-2025.git
+   cd portfolio-2025
+   ```
+
+2. Install dependencies:
+   ```bash
+   composer install
+   npm install
+   ```
+
+3. Build assets:
+   ```bash
+   npm run dev
+   ```
+
+4. Run the server:
+   ```bash
+   php artisan serve
+   ```
+
+5. Open the portfolio in your browser at `http://localhost:8000`.
 
 
-## Learning Statamic
+## Contact
 
-Statamic has extensive [documentation][docs]. We dedicate a significant amount of time and energy every day to improving them, so if something is unclear, feel free to open issues for anything you find confusing or incomplete. We are happy to consider anything you feel will make the docs and CMS better.
+For inquiries, you can reach me at [kael.digital](https://kael.digital/contact).
 
-## Support
+---
 
-We provide official developer support on [Statamic Pro](https://statamic.com/pricing) projects. Community-driven support is available on the [forum](https://statamic.com/forum) and in [Discord][discord].
-
-
-## Contributing
-
-Thank you for considering contributing to Statamic! We simply ask that you review the [contribution guide][contribution] before you open issues or send pull requests.
-
-
-## Code of Conduct
-
-In order to ensure that the Statamic community is welcoming to all and generally a rad place to belong, please review and abide by the [Code of Conduct](https://github.com/statamic/cms/wiki/Code-of-Conduct).
-
-
-## Important Links
-
-- [Statamic Main Site](https://statamic.com)
-- [Statamic Documentation][docs]
-- [Statamic Core Package Repo][cms-repo]
-- [Statamic Migrator](https://github.com/statamic/migrator)
-- [Statamic Discord][discord]
-
-[docs]: https://statamic.dev/
-[discord]: https://statamic.com/discord
-[contribution]: https://github.com/statamic/cms/blob/master/CONTRIBUTING.md
-[cms-repo]: https://github.com/statamic/cms
+© 2025 Kael Cadranel
